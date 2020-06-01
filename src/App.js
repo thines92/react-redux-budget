@@ -1,10 +1,10 @@
 import React from 'react';
-import Transaction from './components/transaction.js'
+import TransactionTable from './components/transactionTable.js'
 
 function App() {
   return (
     <div className="App">
-      <Transaction />
+      <TransactionTable />
     </div>
   );
 }
