@@ -25,23 +25,6 @@ class Transaction extends React.Component {
         addTransaction(event);
     }
 
-    renderTransactions() {
-        const transactionStyle = {
-            display: 'flex',
-            justifyContent: 'center',
-            width: '50%'
-        }
-        
-        return this.props.transactions.map((transaction, i) => {
-            return (
-                <div key={i} style={transactionStyle}>
-                    <p style={{ width: '50%' }}>{transaction.income}</p>
-                    <p style={{ width: '50%' }}>{transaction.source}</p>
-                </div>
-            )
-        })
-    }
-
     render() {
         return (
             <div>

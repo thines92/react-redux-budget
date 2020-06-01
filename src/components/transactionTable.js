@@ -13,10 +13,28 @@ class TransactionTable extends React.Component {
         this.props.fetchTransactions();
     }
 
+    renderTransactions = () => {
+        const transactionStyle = {
+            display: 'flex',
+            justifyContent: 'center',
+            width: '50%'
+        }
+        console.log('props', this.props)
+        
+        return this.props.transactions.transactions.map((transaction, i) => {
+            return (
+                <div key={i} style={transactionStyle}>
+                    <p style={{ width: '50%' }}>{transaction.income}</p>
+                    <p style={{ width: '50%' }}>{transaction.source}</p>
+                </div>
+            )
+        })
+    }
+
     render() {
         return (
             <div>
-                Transaction Table
+                {this.renderTransactions()}
             </div>
         )
     }
@@ -24,7 +42,7 @@ class TransactionTable extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        transactions: state.transactions
+        transactions: state.transactions.transactions
     }
 }
 export default connect(

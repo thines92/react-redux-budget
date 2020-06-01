@@ -12,12 +12,11 @@ export default (state = {
             income: '3',
             source: 'differenttest'
         }
-    ],
-    error: null
+    ]
 }, action) => {
     switch (action.type) {
         case "FETCH_TRANSACTIONS": {
-            return { ...state.transactions }
+            return state
         }
         case "ADD_TRANSACTION": {
             return { ...state.transactions, transactions: action.payload };

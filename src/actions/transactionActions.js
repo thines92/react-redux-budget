@@ -1,10 +1,10 @@
-export function fetchTransactions() {
+export const fetchTransactions = () => {
     return {
         type: "FETCH_TRANSACTIONS"
     }
 }
 
-export function addTransaction(transaction) {
+export const addTransaction = (transaction) => {
     return {
         type: "ADD_TRANSACTION",
         payload: transaction
