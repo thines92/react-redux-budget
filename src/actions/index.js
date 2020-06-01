@@ -16,3 +16,7 @@ export const fetchTransactions = (dispatch) => {
 
     dispatch({ type: "FETCH_TRANSACTIONS", payload: transactions});
 } 
+
+export const addTransaction = (dispatch) => {
+    
+}
