@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Transaction from './components/transaction.js'
 
 function App() {
