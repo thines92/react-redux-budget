@@ -1,22 +1,13 @@
-export const fetchTransactions = (dispatch) => {
-    const transactions = [
-        {
-            income: '1',
-            source: 'test'
-        },
-        {
-            income: '2',
-            source: 'anothertest'
-        },
-        {
-            income: '3',
-            source: 'differenttest'
-        }
-    ]
+export function fetchTransactions() {
+    return {
+        type: "FETCH_TRANSACTIONS",
+        payload: transactions
+    }
+}
 
-    dispatch({ type: "FETCH_TRANSACTIONS", payload: transactions});
-} 
-
-export const addTransaction = (dispatch) => {
-    
+export function addTransaction(transaction) {
+    return {
+        type: "ADD_TRANSACTION",
+        payload: transaction
+    }
 }
