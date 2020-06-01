@@ -1,5 +1,6 @@
 import React from 'react';
-import * as transaction from '../actions/transactionActions'
+import { fetchTransactions } from '../actions/transactionActions'
+import { connect } from 'react-redux';
 
 class Transaction extends React.Component {
     constructor(props) {
@@ -74,4 +75,15 @@ class Transaction extends React.Component {
     }
 }
 
-export default Transaction;
+const mapStateToProps = state => {
+	console.log("mapStatetoProps state: " + JSON.stringify(state));
+	return {
+		transactions: state.transactions
+	};
+};
+export default connect(
+	mapStateToProps,
+	{
+		fetchTransactions
+	}
+)(Transaction);
