@@ -1,18 +1,5 @@
 export default (state = {
-    transactions: [
-        {
-            income: '1',
-            source: 'test'
-        },
-        {
-            income: '2',
-            source: 'anothertest'
-        },
-        {
-            income: '3',
-            source: 'differenttest'
-        }
-    ],
+    transactions: [],
     error: null
 }, action) => {
     switch (action.type) {

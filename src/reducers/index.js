@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import transactionsReducer from "./transactionsReducer";
+import transactionReducer from "./transactionReducer";
 
 export default combineReducers({
-    transactions: transactionsReducer
+    transactions: transactionReducer
 });

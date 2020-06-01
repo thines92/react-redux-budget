@@ -1,4 +1,5 @@
 import React from 'react';
+import * as transaction from '../actions/transactionActions'
 
 class Transaction extends React.Component {
     constructor(props) {
