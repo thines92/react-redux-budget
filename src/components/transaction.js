@@ -1,45 +1,24 @@
 import React from 'react';
-import { fetchTransactions } from '../actions/transactionActions'
+import { fetchTransactions, addTransaction } from '../actions/transactionActions'
 import { connect } from 'react-redux';
 
 class Transaction extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            income: '',
-            source: '',
-            transactions: [
-                {
-                    income: '1',
-                    source: 'test'
-                }
-            ]
-        }
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value })
-        console.log(this.state)
+        console.log(this.props)
     }
 
     handleSubmit(event) {
         console.log(this.state);
         console.log(event)
         event.preventDefault();
-        this.setState(state => {
-            const transactions = state.transactions.concat({ income: this.state.income, source: this.state.source });
-
-            return {
-                transactions,
-                income: '',
-                source: ''
-            }
-        })
-        console.log(this.state)
+        addTransaction(event);
     }
 
     renderTransactions() {
@@ -63,12 +42,12 @@ class Transaction extends React.Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="income" value={this.state.income} onChange={this.handleChange} />
-                    <input type="text" name="source" value={this.state.source} onChange={this.handleChange} />
+                    <input type="text" name="income" value={''} onChange={this.handleChange} />
+                    <input type="text" name="source" value={''} onChange={this.handleChange} />
                     <button type="submit">Submit</button>
                 </form>
                 <div>
-                    {this.renderTransactions()}
+                    
                 </div>
             </div>
         )
