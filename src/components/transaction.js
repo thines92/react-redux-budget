@@ -21,6 +21,11 @@ class Transaction extends React.Component {
         addTransaction(event);
     }
 
+    componentWillMount = () => {
+        console.log(this.props)
+        this.props.fetchTransactions();
+    }
+
     renderTransactions() {
         const transactionStyle = {
             display: 'flex',
@@ -60,6 +65,7 @@ const mapStateToProps = state => {
 		transactions: state.transactions
 	};
 };
+
 export default connect(
 	mapStateToProps,
 	{
