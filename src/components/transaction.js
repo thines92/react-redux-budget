@@ -6,7 +6,13 @@ class Transaction extends React.Component {
 
         this.state = {
             income: '',
-            source: ''
+            source: '',
+            transactions: [
+                {
+                    income: '1',
+                    source: 'test'
+                }
+            ]
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -14,26 +20,54 @@ class Transaction extends React.Component {
     }
 
     handleChange(event) {
-        console.log(event)
-        this.setState({
-            income: event.target.income,
-            source: event.target.source
-        })
+        this.setState({ [event.target.name]: event.target.value })
+        console.log(this.state)
     }
 
     handleSubmit(event) {
         console.log(this.state);
+        console.log(event)
         event.preventDefault();
+        this.setState(state => {
+            const transactions = state.transactions.concat({ income: this.state.income, source: this.state.source });
+
+            return {
+                transactions,
+                income: '',
+                source: ''
+            }
+        })
+        console.log(this.state)
+    }
+
+    renderTransactions() {
+        const transactionStyle = {
+            display: 'flex',
+            justifyContent: 'center',
+            width: '50%'
+        }
+        
+        return this.state.transactions.map((transaction, i) => {
+            return (
+                <div key={i} style={transactionStyle}>
+                    <p style={{ width: '50%' }}>{transaction.income}</p>
+                    <p style={{ width: '50%' }}>{transaction.source}</p>
+                </div>
+            )
+        })
     }
 
     render() {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" value={this.state.income || ''} onChange={this.handleChange} />
-                    <input type="text" value={this.state.source || ''} onChange={this.handleChange} />
+                    <input type="text" name="income" value={this.state.income} onChange={this.handleChange} />
+                    <input type="text" name="source" value={this.state.source} onChange={this.handleChange} />
                     <button type="submit">Submit</button>
                 </form>
+                <div>
+                    {this.renderTransactions()}
+                </div>
             </div>
         )
     }
