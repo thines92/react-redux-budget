@@ -25,11 +25,6 @@ class Transaction extends React.Component {
         addTransaction(event);
     }
 
-    componentDidMount = () => {
-        console.log(this.props)
-        this.props.fetchTransactions();
-    }
-
     renderTransactions() {
         const transactionStyle = {
             display: 'flex',
