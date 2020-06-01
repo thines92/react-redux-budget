@@ -1,20 +1,6 @@
 export function fetchTransactions() {
     return {
-        type: "FETCH_TRANSACTIONS",
-        payload: [
-            {
-                income: '1',
-                source: 'test'
-            },
-            {
-                income: '2',
-                source: 'anothertest'
-            },
-            {
-                income: '3',
-                source: 'differenttest'
-            }
-        ]
+        type: "FETCH_TRANSACTIONS"
     }
 }
 
