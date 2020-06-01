@@ -25,7 +25,7 @@ class Transaction extends React.Component {
         addTransaction(event);
     }
 
-    componentWillMount = () => {
+    componentDidMount = () => {
         console.log(this.props)
         this.props.fetchTransactions();
     }
