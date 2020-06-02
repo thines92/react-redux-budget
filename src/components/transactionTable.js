@@ -20,7 +20,7 @@ class TransactionTable extends React.Component {
                     key={transaction.id.toString()}
                     transaction={transaction}
                     deleteTransaction={this.handleDeleteTransaction}
-                    editTransaction={this.handleEditTransaction}
+                    onSubmit={this.handleEditTransaction}
                 />
             );
         });
@@ -39,8 +39,7 @@ class TransactionTable extends React.Component {
     };
 
     handleEditTransaction = (transaction) => {
-        console.log(transaction);
-        return;
+        console.log("transaction", transaction);
     };
 
     render() {
@@ -49,7 +48,7 @@ class TransactionTable extends React.Component {
                 <TransactionForm
                     addTransaction={this.handleAddTransaction.bind(this)}
                 />
-                <table className="ui two column celled table">
+                {/* <table className="ui two column celled table">
                     <thead>
                         <tr>
                             <th>Type</th>
@@ -57,7 +56,12 @@ class TransactionTable extends React.Component {
                         </tr>
                     </thead>
                     <tbody>{this.renderTransactions()}</tbody>
-                </table>
+                </table> */}
+                <div className="ui grid container">
+                    <div className="six wide column">Type</div>
+                    <div className="six wide column">Source</div>
+                    {this.renderTransactions()}
+                </div>
             </div>
         );
     }
