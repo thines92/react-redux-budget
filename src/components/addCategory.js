@@ -11,16 +11,20 @@ class AddCategory extends React.Component {
     };
   }
 
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  renderError({ error, touched }) {
+    if (error && touched) {
+      return <div className="ui error message">{error}</div>;
+    }
+  }
 
-  renderInput = (props) => {
-    console.log(props);
+  renderInput = ({ input, label, meta }) => {
+    const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
+
     return (
-      <div className="field">
-        <label>{props.label}</label>
-        <input {...props.input} autoComplete="off" />
+      <div className={className}>
+        <label>{label}</label>
+        <input {...input} autoComplete="off" />
+        {this.renderError(meta)}
       </div>
     );
   };
@@ -43,20 +47,37 @@ class AddCategory extends React.Component {
                 <Field name="type" component={this.renderInput} label="Type" />
               </div>
               <div className="field">
-                  <Field name="source" component={this.renderInput} label="Source" />
+                <Field
+                  name="source"
+                  component={this.renderInput}
+                  label="Source"
+                />
               </div>
             </div>
           </div>
 
-          <button className="ui button primary">
-            Submit
-          </button>
+          <button className="ui button primary">Submit</button>
         </form>
       </div>
     );
   }
 }
 
+const validate = (formValues) => {
+  const errors = {};
+
+  if (!formValues.type) {
+    errors.type = "Enter a title";
+  }
+
+  if (!formValues.source) {
+    errors.source = "Enter a source";
+  }
+
+  return errors;
+};
+
 export default reduxForm({
   form: "addCategory",
+  validate: validate,
 })(AddCategory);
