@@ -5,6 +5,7 @@ import {
 export default (
   state = {
     transactions: items,
+    edittingTransaction: false,
     error: null,
   },
   action
@@ -47,6 +48,12 @@ export default (
         ...state,
         transactions: state.transactions,
       };
+    }
+    case "SET_EDIT_STATE": {
+      return { ...state, edittingTransaction: true }
+    }
+    case "SET_VIEW_STATE": {
+      return { ...state, edittingTransaction: false }
     }
     default:
       return state;

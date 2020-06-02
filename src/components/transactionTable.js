@@ -3,7 +3,9 @@ import {
     fetchTransactions,
     addTransaction,
     deleteTransaction,
-    editTransaction
+    editTransaction,
+    setEditState,
+    setViewState
 } from "../actions/transactionActions";
 import { connect } from "react-redux";
 import TransactionForm from "./TransactionForm";
@@ -67,5 +69,7 @@ export default connect(mapStateToProps, {
     fetchTransactions,
     addTransaction,
     deleteTransaction,
-    editTransaction
+    editTransaction,
+    setEditState,
+    setViewState
 })(TransactionTable);

@@ -24,3 +24,15 @@ export const editTransaction = (transaction) => {
         payload: transaction
     }
 }
+
+export const setEditState = () => {
+    return {
+        type: "SET_EDIT_STATE"
+    }
+}
+
+export const setViewState = () => {
+    return {
+        type: "SET_VIEW_STATE"
+    }
+}

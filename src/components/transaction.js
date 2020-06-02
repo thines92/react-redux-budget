@@ -10,11 +10,11 @@ class Transaction extends React.Component {
         };
     }
     setEditState = (transaction) => {
-        this.setState({ isEditting: true })
+        this.props.setEditState()
     };
 
     setViewState = () => {
-        this.setState({ isEditting: false })
+        this.props.setViewState()
     }
 
     renderRow() {
