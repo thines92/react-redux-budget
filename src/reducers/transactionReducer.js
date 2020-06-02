@@ -2,17 +2,17 @@ export default (state = {
     transactions: [
         {
             id: 0,
-            income: '1',
+            type: 'Credit',
             source: 'test'
         },
         {
             id: 1,
-            income: '2',
+            type: 'Credit',
             source: 'anothertest'
         },
         {
             id: 2,
-            income: '3',
+            type: 'Debit',
             source: 'differenttest'
         }
     ],

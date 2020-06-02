@@ -22,11 +22,11 @@ class TransactionTable extends React.Component {
         })
     }
 
-    addCategory = (income, source) => {
+    addCategory = (type, source) => {
         console.log('these props', this.props)
         this.props.addCategory({
             id: this.props.transactions.length,
-            income: income,
+            type: type,
             source: source
         })
     }
@@ -39,7 +39,7 @@ class TransactionTable extends React.Component {
                 <table className="ui celled table">
                     <thead>
                         <tr>
-                            <th>Income</th>
+                            <th>Type</th>
                             <th>Source</th>
                         </tr>
                     </thead>

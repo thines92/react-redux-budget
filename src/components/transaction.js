@@ -12,11 +12,11 @@ class Transaction extends React.Component {
             width: '50%'
         }
         console.log('this.transaction', this.props.transaction)
-        const { income, source, id } = this.props.transaction;
+        const { type, source, id } = this.props.transaction;
 
         return (
             <tr>
-                <td dataLabel="Income">{income}</td>
+                <td dataLabel="type">{type}</td>
                 <td dataLabel="Source">{source}</td>
             </tr>
         )

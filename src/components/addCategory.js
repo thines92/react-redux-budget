@@ -5,7 +5,7 @@ class AddCategory extends React.Component {
         super(props)
 
         this.state = {
-            income: '',
+            type: '',
             source: ''
         }
 
@@ -20,10 +20,10 @@ class AddCategory extends React.Component {
         console.log('e', e.target)
         e.preventDefault();
         console.log('props', this.props)
-        this.props.addCategory(this.state.income, this.state.source)
+        this.props.addCategory(this.state.type, this.state.source)
 
         this.setState({
-            income: '',
+            type: '',
             source: ''
         })
     }
@@ -36,8 +36,8 @@ class AddCategory extends React.Component {
                     <div className="field">
                         <div className="two fields">
                             <div className="field">
-                                <label>Income</label>
-                                <input type="text" name="income" value={this.state.income} placeholder="Income" onChange={this.handleChange} />
+                                <label>type</label>
+                                <input type="text" name="type" value={this.state.type} placeholder="type" onChange={this.handleChange} />
                             </div>
                             <div className="field">
                                 <label>Source</label>
