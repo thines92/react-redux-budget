@@ -4,7 +4,7 @@ export const fetchTransactions = () => {
     }
 }
 
-export const addCategory = (transaction) => {
+export const addTransaction = (transaction) => {
     return {
         type: "ADD_TRANSACTION",
         payload: transaction

@@ -1,8 +1,7 @@
 import React from 'react'
-
-import { fetchTransactions, addCategory, deleteTransaction } from '../actions/transactionActions'
+import { fetchTransactions, addTransaction, deleteTransaction } from '../actions/transactionActions'
 import { connect } from 'react-redux'
-import AddCategory from './addCategory'
+import TransactionForm from './transactionForm'
 import Transaction from './transaction'
 
 class TransactionTable extends React.Component {
@@ -17,22 +16,22 @@ class TransactionTable extends React.Component {
         })
     }
 
-    addCategory = (type, source) => {
-        this.props.addCategory({
+    deleteTransaction = (id) => {
+        this.props.deleteTransaction(id);
+    }
+
+    addTransaction = (type, source) => {
+        this.props.addTransaction({
             id: this.props.transactions.length,
             type: type,
             source: source
         })
     }
 
-    deleteTransaction = (id) => {
-        this.props.deleteTransaction(id);
-    }
-
     render() {
         return (
             <div className="ui container stackable">
-                <AddCategory addCategory={this.addCategory.bind(this)} />
+                <TransactionForm addTransaction={this.addTransaction.bind(this)} />
                 <table className="ui two column celled table">
                     <thead>
                         <tr>
@@ -56,7 +55,7 @@ export default connect(
     mapStateToProps,
     {
         fetchTransactions,
-        addCategory,
+        addTransaction,
         deleteTransaction
     }
 )(TransactionTable);

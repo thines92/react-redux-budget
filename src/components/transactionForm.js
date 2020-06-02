@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-class AddCategory extends React.Component {
+class TransactionForm extends React.Component {
 
   renderError({ error, touched }) {
     if (error && touched) {
@@ -22,7 +22,7 @@ class AddCategory extends React.Component {
   };
 
   onSubmit = ({ type, source }) => {
-    this.props.addCategory(type, source);
+    this.props.addTransaction(type, source);
   };
 
   render() {
@@ -70,6 +70,6 @@ const validate = (formValues) => {
 };
 
 export default reduxForm({
-  form: "addCategory",
+  form: "addTransaction",
   validate: validate,
-})(AddCategory);
+})(TransactionForm);
