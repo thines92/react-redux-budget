@@ -1,5 +1,4 @@
 import React from 'react'
-import { reset, reduxForm } from 'redux-form'
 
 class AddCategory extends React.Component {
     constructor(props) {
@@ -22,6 +21,7 @@ class AddCategory extends React.Component {
         e.preventDefault();
         console.log('props', this.props)
         this.props.addTransaction(this.state.income, this.state.source)
+        
         this.setState({
             income: '',
             source: ''
