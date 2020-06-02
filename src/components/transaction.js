@@ -11,11 +11,11 @@ class Transaction extends React.Component {
             justifyContent: 'center',
             width: '50%'
         }
-        console.log('this.props', this.props)
-        const { income, source, uniq } = this.props;
+        console.log('this.transaction', this.props.transaction)
+        const { income, source, id } = this.props.transaction;
 
         return (
-            <div key={uniq} style={transactionStyle}>
+            <div style={transactionStyle}>
                 <p style={{ width: '50%' }}>{income}</p>
                 <p style={{ width: '50%' }}>{source}</p>
             </div>

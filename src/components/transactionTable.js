@@ -16,20 +16,23 @@ class TransactionTable extends React.Component {
     }
 
     renderTransactions = () => {        
+        console.log('this.props', this.props)
         return this.props.transactions.map((transaction, i) => {
-            return <Transaction income={transaction.income} source={transaction.source} uniq={i} />
+            return <Transaction key={transaction.id.toString()} transaction={transaction} />
         })
     }
 
     addTransaction = (income, source) => {
         console.log('these props', this.props)
         this.props.addTransaction({
+            id: this.props.transactions.length,
             income: income,
             source: source
         })
     }
 
     render() {
+        console.log('this', this)
         return (
             <div>
                 <AddCategory addTransaction={this.addTransaction.bind(this)}/>
@@ -40,9 +43,8 @@ class TransactionTable extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {
-        transactions: state.transactions.transactions
-    }
+    console.log('state', state)
+    return state.transactions
 }
 export default connect(
     mapStateToProps,
