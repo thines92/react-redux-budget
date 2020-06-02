@@ -1,5 +1,5 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import React from "react";
+import { Field, reduxForm } from "redux-form";
 
 class AddCategory extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class AddCategory extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = (e) => {
+  onSubmit = (e) => {
     console.log("e", e.target);
     e.preventDefault();
     console.log("props", this.props);
@@ -32,7 +32,7 @@ class AddCategory extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit.bind(this)} className="ui form">
+        <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form">
           <h4 className="ui dividing header">Add Category</h4>
           <div className="field">
             <div className="two fields">
@@ -66,4 +66,6 @@ class AddCategory extends React.Component {
   }
 }
 
-export default AddCategory;
+export default reduxForm({
+    form: 'addCategory'
+})(AddCategory);
