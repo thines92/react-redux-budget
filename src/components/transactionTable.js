@@ -1,8 +1,8 @@
 import React from 'react'
 import { fetchTransactions, addTransaction, deleteTransaction } from '../actions/transactionActions'
 import { connect } from 'react-redux'
-import TransactionForm from './transactionForm'
-import Transaction from './transaction'
+import TransactionForm from './TransactionForm'
+import Transaction from './Transaction'
 
 class TransactionTable extends React.Component {
     

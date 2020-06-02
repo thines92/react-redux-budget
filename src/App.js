@@ -1,5 +1,5 @@
 import React from 'react'
-import TransactionTable from './components/transactionTable.js'
+import TransactionTable from './components/TransactionTable.js'
 
 function App() {
   return (
