@@ -18,9 +18,8 @@ export default (
       };
     }
     case "DELETE_TRANSACTION": {
-        console.log('delete_transaction payload', action.payload)
         const filteredTransactions = state.transactions.filter(transaction => transaction.id != action.payload);
-        console.log('filteredTransactions', filteredTransactions)
+        
         return {
             ...state,
             transactions: filteredTransactions

@@ -10,7 +10,7 @@ class Transaction extends React.Component {
             <tr>
                 <td datalabel="type">{type}</td>
                 <td datalabel="source">{source}</td>
-                <td datalabel="delete"><button className="ui button delete" onClick={this.props.deleteTransaction.bind(this, id)}>Delete</button></td>
+                <td datalabel="delete"><button className="ui button red" onClick={this.props.deleteTransaction.bind(this, id)}>Delete</button></td>
             </tr>
         )
     }
