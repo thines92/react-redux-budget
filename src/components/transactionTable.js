@@ -37,6 +37,10 @@ class TransactionTable extends React.Component {
     });
   };
 
+  handleEditTransaction = (transaction) => {
+    return;
+  };
+
   render() {
     return (
       <div className="ui container stackable">
