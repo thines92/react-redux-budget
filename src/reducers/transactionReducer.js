@@ -16,10 +16,11 @@ export default (state = {
 }, action) => {
     switch (action.type) {
         case "FETCH_TRANSACTIONS": {
-            return state
+            return { ...state }
         }
         case "ADD_TRANSACTION": {
-            return { ...state.transactions, transactions: action.payload };
+            console.log('payload', action.payload)
+            return { ...state.transactions, transactions: [...state.transactions, action.payload] };
         }
         default:
             return state;

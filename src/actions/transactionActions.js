@@ -5,6 +5,7 @@ export const fetchTransactions = () => {
 }
 
 export const addTransaction = (transaction) => {
+    console.log('action', transaction)
     return {
         type: "ADD_TRANSACTION",
         payload: transaction
