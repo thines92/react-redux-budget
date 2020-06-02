@@ -2,14 +2,6 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
 class AddCategory extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      type: "",
-      source: "",
-    };
-  }
 
   renderError({ error, touched }) {
     if (error && touched) {
