@@ -18,12 +18,28 @@ export default (
       };
     }
     case "DELETE_TRANSACTION": {
-        const filteredTransactions = state.transactions.filter(transaction => transaction.id != action.payload);
-        
-        return {
-            ...state,
-            transactions: filteredTransactions
-        }
+      const filteredTransactions = state.transactions.filter(
+        (transaction) => transaction.id != action.payload
+      );
+
+      return {
+        ...state,
+        transactions: filteredTransactions,
+      };
+    }
+    case "EDIT_TRANSACTION": {
+      const editedTransactionIndex = state.transactions.find(
+        (transaction) => transaction.id == action.payload.id
+      );
+      const editedTransactions = state.transactions.splice(
+        editedTransactionIndex,
+        action.payload
+      );
+
+      return {
+        ...state,
+        transactions: editedTransactions,
+      };
     }
     default:
       return state;

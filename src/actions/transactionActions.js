@@ -17,3 +17,10 @@ export const deleteTransaction = (transactionId) => {
         payload: transactionId
     }
 }
+
+export const editTransaction = (transactionId) => {
+    return {
+        type: "EDIT_TRANSACTION",
+        payload: transactionId
+    }
+}
