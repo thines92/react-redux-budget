@@ -17,7 +17,6 @@ class TransactionTable extends React.Component {
     };
 
     renderTransactions = () => {
-      console.log('this', this)
         return this.props.transactions.map((transaction, i) => {
             return (
                 <Transaction
@@ -47,7 +46,6 @@ class TransactionTable extends React.Component {
     };
 
     handleEditTransaction = (transaction) => {
-        console.log("transaction", transaction);
         this.props.editTransaction(transaction)
     };
 

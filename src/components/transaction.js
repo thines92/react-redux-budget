@@ -42,7 +42,6 @@ class Transaction extends React.Component {
     }
 
     renderContent() {
-        console.log('renderContent', this)
         return this.props.edittingTransaction && this.props.edittedTransaction == this.props.transaction.id ? this.renderEdit(this.props.transaction) : this.renderRow() 
     }
 

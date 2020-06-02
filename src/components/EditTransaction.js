@@ -3,6 +3,12 @@ import { Field, reduxForm } from 'redux-form'
 
 class EditTransaction extends React.Component {
 
+    renderError({ error, touched }) {
+        if (error && touched) {
+          return <div className="ui error message">{error}</div>;
+        }
+      }
+      
     renderInput = ({ input, label, meta }) => {
         const className = `field ${meta.error && meta.touched ? "error" : ""}`;
 
@@ -10,7 +16,7 @@ class EditTransaction extends React.Component {
             <div className={className}>
                 <label>{label}</label>
                 <input {...input} autoComplete="off" />
-                {/* {this.renderError(meta)} */}
+                {this.renderError(meta)}
             </div>
         );
     };
@@ -28,7 +34,7 @@ class EditTransaction extends React.Component {
         return (
             <div>
                 <form
-                    className="ui form"
+                    className="ui form error"
                     onSubmit={this.props.handleSubmit(
                         this.onSubmit
                     )}
@@ -54,6 +60,21 @@ class EditTransaction extends React.Component {
     }
 }
 
+const validate = (formValues) => {
+    const errors = {};
+  
+    if (!formValues.type) {
+      errors.type = "Enter a title";
+    }
+  
+    if (!formValues.source) {
+      errors.source = "Enter a source";
+    }
+  
+    return errors;
+  };
+
 export default reduxForm({
-    form: 'editTransaction'
+    form: 'editTransaction',
+    validate: validate
 })(EditTransaction);
