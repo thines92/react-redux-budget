@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import TransactionTable from './components/transactionTable.js'
 
 function App() {

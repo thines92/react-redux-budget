@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react'
 
-import { fetchTransactions, addCategory } from "../actions/transactionActions"
-import { connect } from "react-redux"
+import { fetchTransactions, addCategory } from '../actions/transactionActions'
+import { connect } from 'react-redux'
 import AddCategory from './addCategory'
 import Transaction from './transaction'
 

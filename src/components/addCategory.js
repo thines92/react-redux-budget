@@ -1,5 +1,5 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
+import React from 'react'
+import { Field, reduxForm } from 'redux-form'
 
 class AddCategory extends React.Component {
   constructor(props) {
