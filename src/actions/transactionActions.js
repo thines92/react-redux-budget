@@ -18,9 +18,9 @@ export const deleteTransaction = (transactionId) => {
     }
 }
 
-export const editTransaction = (transactionId) => {
+export const editTransaction = (transaction) => {
     return {
         type: "EDIT_TRANSACTION",
-        payload: transactionId
+        payload: transaction
     }
 }
