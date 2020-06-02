@@ -36,12 +36,10 @@ class AddCategory extends React.Component {
                     <div className="field">
                         <div className="two fields">
                             <div className="field">
-                                <label>type</label>
-                                <input type="text" name="type" value={this.state.type} placeholder="type" onChange={this.handleChange} />
+                                <input type="text" name="type" value={this.state.type} placeholder="Type" onChange={this.handleChange} />
                             </div>
                             <div className="field">
-                                <label>Source</label>
-                                <input type="text" name="source" value={this.state.source} onChange={this.handleChange} />
+                                <input type="text" name="source" value={this.state.source} placeholder="Source" onChange={this.handleChange} />
                             </div>
                         </div>
                     </div>

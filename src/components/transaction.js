@@ -1,23 +1,14 @@
 import React from 'react';
 
 class Transaction extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
-        const transactionStyle = {
-            display: 'flex',
-            justifyContent: 'center',
-            width: '50%'
-        }
-        console.log('this.transaction', this.props.transaction)
-        const { type, source, id } = this.props.transaction;
+        const { type, source } = this.props.transaction;
 
         return (
             <tr>
-                <td dataLabel="type">{type}</td>
-                <td dataLabel="Source">{source}</td>
+                <td datalabel="type">{type}</td>
+                <td datalabel="Source">{source}</td>
             </tr>
         )
     }

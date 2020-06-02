@@ -6,24 +6,18 @@ import AddCategory from './addCategory'
 import Transaction from './transaction'
 
 class TransactionTable extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
+    
     componentDidMount = () => {
-        console.log(this.props)
         this.props.fetchTransactions();
     }
 
     renderTransactions = () => {
-        console.log('this.props', this.props)
         return this.props.transactions.map((transaction, i) => {
             return <Transaction key={transaction.id.toString()} transaction={transaction} />
         })
     }
 
     addCategory = (type, source) => {
-        console.log('these props', this.props)
         this.props.addCategory({
             id: this.props.transactions.length,
             type: type,
@@ -32,11 +26,10 @@ class TransactionTable extends React.Component {
     }
 
     render() {
-        console.log('this', this)
         return (
-            <div>
+            <div className="ui container stackable">
                 <AddCategory addCategory={this.addCategory.bind(this)} />
-                <table className="ui celled table">
+                <table className="ui two column celled table">
                     <thead>
                         <tr>
                             <th>Type</th>
@@ -53,7 +46,6 @@ class TransactionTable extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log('state', state)
     return state.transactions
 }
 export default connect(
