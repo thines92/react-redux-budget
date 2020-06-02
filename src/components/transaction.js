@@ -8,7 +8,8 @@ class Transaction extends React.Component {
         return (
             <tr>
                 <td datalabel="type">{type}</td>
-                <td datalabel="Source">{source}</td>
+                <td datalabel="source">{source}</td>
+                <td datalabel="delete"><button className="ui button delete">Delete</button></td>
             </tr>
         )
     }
