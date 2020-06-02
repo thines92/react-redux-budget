@@ -4,7 +4,6 @@ class Transaction extends React.Component {
 
     render() {
         const { id, type, source } = this.props.transaction;
-        console.log('this.props', this.props)
 
         return (
             <tr>

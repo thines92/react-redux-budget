@@ -5,7 +5,6 @@ export const fetchTransactions = () => {
 }
 
 export const addCategory = (transaction) => {
-    console.log('action', transaction)
     return {
         type: "ADD_TRANSACTION",
         payload: transaction
@@ -13,7 +12,6 @@ export const addCategory = (transaction) => {
 }
 
 export const deleteTransaction = (transactionId) => {
-    console.log('transactionid', transactionId)
     return {
         type: "DELETE_TRANSACTION",
         payload: transactionId
