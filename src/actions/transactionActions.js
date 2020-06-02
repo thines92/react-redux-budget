@@ -11,3 +11,10 @@ export const addCategory = (transaction) => {
         payload: transaction
     }
 }
+
+export const deleteTransaction = (transactionId) => {
+    return {
+        type: "DELETE_TRANSACTION",
+        payload: transactionId
+    }
+}
