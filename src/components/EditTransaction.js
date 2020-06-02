@@ -23,7 +23,7 @@ class EditTransaction extends React.Component {
             type: values.type,
             source: values.source
         });
-        
+        this.props.setViewState()
     }
 
     render(props) {

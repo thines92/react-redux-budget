@@ -9,10 +9,13 @@ class Transaction extends React.Component {
             isEditting: false,
         };
     }
-    isEditting = (transaction) => {
+    setEditState = (transaction) => {
         this.setState({ isEditting: true })
-        // return <EditTransaction oldTransaction={transaction} />;
     };
+
+    setViewState = () => {
+        this.setState({ isEditting: false })
+    }
 
     renderRow() {
         const { id, type, source } = this.props.transaction;
@@ -24,7 +27,7 @@ class Transaction extends React.Component {
                 <div className="two wide column">
                     <button
                         className="ui button primary"
-                        onClick={this.isEditting}
+                        onClick={this.setEditState}
                     >
                         Edit
                     </button>
@@ -42,7 +45,7 @@ class Transaction extends React.Component {
     }
 
     renderEdit(transaction) {
-        return <EditTransaction editTransaction={this.props.editTransaction} transaction={transaction} isEditting={this.state.isEditting} />
+        return <EditTransaction editTransaction={this.props.editTransaction} transaction={transaction} setViewState={this.setViewState} />
     }
 
     renderContent() {
@@ -50,7 +53,6 @@ class Transaction extends React.Component {
     }
 
     render() {
-        console.log('this.props', this.props)
         return (
             <div className="twelve wide column">
                 {this.renderContent()}
