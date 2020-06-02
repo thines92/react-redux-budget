@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { fetchTransactions, addCategory } from '../actions/transactionActions'
+import { fetchTransactions, addCategory, deleteTransaction } from '../actions/transactionActions'
 import { connect } from 'react-redux'
 import AddCategory from './addCategory'
 import Transaction from './transaction'
@@ -13,7 +13,7 @@ class TransactionTable extends React.Component {
 
     renderTransactions = () => {
         return this.props.transactions.map((transaction, i) => {
-            return <Transaction key={transaction.id.toString()} transaction={transaction} />
+            return <Transaction key={transaction.id.toString()} transaction={transaction} deleteTransaction={this.deleteTransaction} />
         })
     }
 
@@ -23,6 +23,11 @@ class TransactionTable extends React.Component {
             type: type,
             source: source
         })
+    }
+
+    deleteTransaction = (id) => {
+        console.log('id', id)
+        this.props.deleteTransaction(id);
     }
 
     render() {
@@ -52,6 +57,7 @@ export default connect(
     mapStateToProps,
     {
         fetchTransactions,
-        addCategory
+        addCategory,
+        deleteTransaction
     }
 )(TransactionTable);

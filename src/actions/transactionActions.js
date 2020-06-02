@@ -13,6 +13,7 @@ export const addCategory = (transaction) => {
 }
 
 export const deleteTransaction = (transactionId) => {
+    console.log('transactionid', transactionId)
     return {
         type: "DELETE_TRANSACTION",
         payload: transactionId
