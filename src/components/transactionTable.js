@@ -3,6 +3,7 @@ import React from "react"
 import { fetchTransactions, addTransaction } from "../actions/transactionActions"
 import { connect } from "react-redux"
 import AddCategory from './addCategory'
+import Transaction from './transaction'
 
 class TransactionTable extends React.Component {
     constructor(props) {
@@ -14,21 +15,9 @@ class TransactionTable extends React.Component {
         this.props.fetchTransactions();
     }
 
-    renderTransactions = () => {
-        const transactionStyle = {
-            display: 'flex',
-            justifyContent: 'center',
-            width: '50%'
-        }
-        // console.log('props', this.props.transactions)
-        
+    renderTransactions = () => {        
         return this.props.transactions.map((transaction, i) => {
-            return (
-                <div key={i} style={transactionStyle}>
-                    <p style={{ width: '50%' }}>{transaction.income}</p>
-                    <p style={{ width: '50%' }}>{transaction.source}</p>
-                </div>
-            )
+            return <Transaction income={transaction.income} source={transaction.source} uniq={i} />
         })
     }
 
