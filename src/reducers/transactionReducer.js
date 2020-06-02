@@ -1,4 +1,6 @@
-import { items } from "../staticItems";
+import {
+  items
+} from "../staticItems";
 
 export default (
   state = {
@@ -9,7 +11,9 @@ export default (
 ) => {
   switch (action.type) {
     case "FETCH_TRANSACTIONS": {
-      return { ...state };
+      return {
+        ...state
+      };
     }
     case "ADD_TRANSACTION": {
       return {
@@ -28,17 +32,20 @@ export default (
       };
     }
     case "EDIT_TRANSACTION": {
-      const editedTransactionIndex = state.transactions.find(
+      const editedTransactionIndex = state.transactions.findIndex(
         (transaction) => transaction.id == action.payload.id
       );
+      console.log('editedTransactionIndex', editedTransactionIndex)
+      console.log('action.payload', action.payload)
+      console.log('state.transactions', state.transactions)
       const editedTransactions = state.transactions.splice(
-        editedTransactionIndex,
-        action.payload
+        editedTransactionIndex, 1, action.payload
       );
+      console.log('editedTRansactions', editedTransactions)
 
       return {
         ...state,
-        transactions: editedTransactions,
+        transactions: state.transactions,
       };
     }
     default:
