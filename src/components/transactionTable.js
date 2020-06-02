@@ -3,6 +3,7 @@ import {
     fetchTransactions,
     addTransaction,
     deleteTransaction,
+    editTransaction
 } from "../actions/transactionActions";
 import { connect } from "react-redux";
 import TransactionForm from "./TransactionForm";
@@ -20,7 +21,7 @@ class TransactionTable extends React.Component {
                     key={transaction.id.toString()}
                     transaction={transaction}
                     deleteTransaction={this.handleDeleteTransaction}
-                    onSubmit={this.handleEditTransaction}
+                    editTransaction={this.handleEditTransaction.bind(this)}
                 />
             );
         });
@@ -40,6 +41,7 @@ class TransactionTable extends React.Component {
 
     handleEditTransaction = (transaction) => {
         console.log("transaction", transaction);
+        this.props.editTransaction(transaction)
     };
 
     render() {
@@ -48,15 +50,6 @@ class TransactionTable extends React.Component {
                 <TransactionForm
                     addTransaction={this.handleAddTransaction.bind(this)}
                 />
-                {/* <table className="ui two column celled table">
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>Source</th>
-                        </tr>
-                    </thead>
-                    <tbody>{this.renderTransactions()}</tbody>
-                </table> */}
                 <div className="ui grid container">
                     <div className="six wide column">Type</div>
                     <div className="six wide column">Source</div>
@@ -74,4 +67,5 @@ export default connect(mapStateToProps, {
     fetchTransactions,
     addTransaction,
     deleteTransaction,
+    editTransaction
 })(TransactionTable);

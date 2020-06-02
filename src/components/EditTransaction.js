@@ -16,9 +16,9 @@ class EditTransaction extends React.Component {
         );
     };
 
-    onSubmit = (props) => {
-        console.log('onSubmit', props);
-        this.props.editTransaction();
+    onSubmit = (values) => {
+        console.log('onSubmit', values);
+        this.props.editTransaction(this.props.transaction);
     }
 
     render(props) {
@@ -28,7 +28,7 @@ class EditTransaction extends React.Component {
                 <form
                     className="ui form"
                     onSubmit={this.props.handleSubmit(
-                        this.onSubmit(this)
+                        this.onSubmit
                     )}
                 >
                     <div className="field">
@@ -52,8 +52,6 @@ class EditTransaction extends React.Component {
     }
 }
 
-// export default reduxForm({
-//     form: 'editTransaction'
-// })(EditTransaction);
-
-export default EditTransaction;
+export default reduxForm({
+    form: 'editTransaction'
+})(EditTransaction);

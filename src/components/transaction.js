@@ -9,7 +9,7 @@ class Transaction extends React.Component {
             isEditting: false,
         };
     }
-    handleEditTransaction = (transaction) => {
+    isEditting = (transaction) => {
         console.log('transaction', transaction)
         this.setState({ isEditting: true })
         // return <EditTransaction oldTransaction={transaction} />;
@@ -25,10 +25,7 @@ class Transaction extends React.Component {
                 <div className="two wide column">
                     <button
                         className="ui button primary"
-                        onClick={this.handleEditTransaction.bind(
-                            this,
-                            this.props.transaction
-                        )}
+                        onClick={this.isEditting.bind()}
                     >
                         Edit
                     </button>
@@ -46,14 +43,19 @@ class Transaction extends React.Component {
     }
 
     renderEdit(transaction) {
-        return <EditTransaction editTransaction={this.handleEditTransaction} transaction={transaction}/>
+        console.log('transaction new', transaction)
+        return <EditTransaction editTransaction={this.props.editTransaction} transaction={transaction}/>
+    }
+
+    renderContent() {
+        return !this.state.isEditting ? this.renderRow() : this.renderEdit(this.props.transaction)
     }
 
     render() {
         console.log('this.props', this.props)
         return (
             <div className="twelve wide column">
-                {!this.state.isEditting ? this.renderRow() : this.renderEdit(this.props.transaction)}
+                {this.renderContent()}
             </div>
         );
     }
