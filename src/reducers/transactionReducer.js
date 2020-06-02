@@ -1,21 +1,7 @@
+import { items } from '../staticItems'
+
 export default (state = {
-    transactions: [
-        {
-            id: 0,
-            type: 'Credit',
-            source: 'test'
-        },
-        {
-            id: 1,
-            type: 'Credit',
-            source: 'anothertest'
-        },
-        {
-            id: 2,
-            type: 'Debit',
-            source: 'differenttest'
-        }
-    ],
+    transactions: items,
     error: null
 }, action) => {
     switch (action.type) {
