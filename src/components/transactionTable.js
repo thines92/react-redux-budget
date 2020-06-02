@@ -17,13 +17,18 @@ class TransactionTable extends React.Component {
     };
 
     renderTransactions = () => {
+      console.log('this', this)
         return this.props.transactions.map((transaction, i) => {
             return (
                 <Transaction
                     key={transaction.id.toString()}
                     transaction={transaction}
+                    edittingTransaction={this.props.edittingTransaction}
+                    edittedTransaction={this.props.edittedTransaction}
                     deleteTransaction={this.handleDeleteTransaction}
                     editTransaction={this.handleEditTransaction.bind(this)}
+                    setEditState={this.props.setEditState}
+                    setViewState={this.props.setViewState}
                 />
             );
         });

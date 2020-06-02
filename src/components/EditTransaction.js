@@ -4,7 +4,6 @@ import { Field, reduxForm } from 'redux-form'
 class EditTransaction extends React.Component {
 
     renderInput = ({ input, label, meta }) => {
-        console.log(label);
         const className = `field ${meta.error && meta.touched ? "error" : ""}`;
 
         return (
@@ -17,7 +16,6 @@ class EditTransaction extends React.Component {
     };
 
     onSubmit = (values) => {
-        console.log('onSubmit', values);
         this.props.editTransaction({
             id: this.props.transaction.id,
             type: values.type,
@@ -26,8 +24,7 @@ class EditTransaction extends React.Component {
         this.props.setViewState()
     }
 
-    render(props) {
-        console.log('props', this)
+    render() {
         return (
             <div>
                 <form

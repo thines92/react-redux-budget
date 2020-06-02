@@ -25,9 +25,10 @@ export const editTransaction = (transaction) => {
     }
 }
 
-export const setEditState = () => {
+export const setEditState = (transactionId) => {
     return {
-        type: "SET_EDIT_STATE"
+        type: "SET_EDIT_STATE",
+        payload: transactionId
     }
 }
 
