@@ -9,13 +9,13 @@ class TransactionTable extends React.Component {
     constructor(props) {
         super(props);
     }
-    
+
     componentDidMount = () => {
         console.log(this.props)
         this.props.fetchTransactions();
     }
 
-    renderTransactions = () => {        
+    renderTransactions = () => {
         console.log('this.props', this.props)
         return this.props.transactions.map((transaction, i) => {
             return <Transaction key={transaction.id.toString()} transaction={transaction} />
@@ -35,8 +35,18 @@ class TransactionTable extends React.Component {
         console.log('this', this)
         return (
             <div>
-                <AddCategory addTransaction={this.addTransaction.bind(this)}/>
-                {this.renderTransactions()}
+                <AddCategory addTransaction={this.addTransaction.bind(this)} />
+                <table className="ui celled table">
+                    <thead>
+                        <tr>
+                            <th>Income</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.renderTransactions()}
+                    </tbody>
+                </table>
             </div>
         )
     }

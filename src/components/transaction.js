@@ -15,10 +15,10 @@ class Transaction extends React.Component {
         const { income, source, id } = this.props.transaction;
 
         return (
-            <div style={transactionStyle}>
-                <p style={{ width: '50%' }}>{income}</p>
-                <p style={{ width: '50%' }}>{source}</p>
-            </div>
+            <tr>
+                <td dataLabel="Income">{income}</td>
+                <td dataLabel="Source">{source}</td>
+            </tr>
         )
     }
 }
