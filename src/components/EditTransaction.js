@@ -2,14 +2,33 @@ import React from "react";
 import { Field, reduxForm } from 'redux-form'
 
 class EditTransaction extends React.Component {
+
+    renderInput = ({ input, label, meta }) => {
+        console.log(label);
+        const className = `field ${meta.error && meta.touched ? "error" : ""}`;
+
+        return (
+            <div className={className}>
+                <label>{label}</label>
+                <input {...input} autoComplete="off" />
+                {/* {this.renderError(meta)} */}
+            </div>
+        );
+    };
+
+    onSubmit = (props) => {
+        console.log('onSubmit', props);
+        this.props.editTransaction();
+    }
+
     render(props) {
-        console.log('props', props)
+        console.log('props', this)
         return (
             <div>
                 <form
                     className="ui form"
                     onSubmit={this.props.handleSubmit(
-                        this.props.onSubmit(props)
+                        this.onSubmit(this)
                     )}
                 >
                     <div className="field">
@@ -33,6 +52,8 @@ class EditTransaction extends React.Component {
     }
 }
 
-export default reduxForm({
-    form: 'editTransaction'
-})(EditTransaction);
+// export default reduxForm({
+//     form: 'editTransaction'
+// })(EditTransaction);
+
+export default EditTransaction;

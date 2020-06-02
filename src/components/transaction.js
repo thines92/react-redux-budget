@@ -9,24 +9,13 @@ class Transaction extends React.Component {
             isEditting: false,
         };
     }
-    editTransaction = (props) => {
-        return <EditTransaction props={props} />;
+    handleEditTransaction = (transaction) => {
+        console.log('transaction', transaction)
+        this.setState({ isEditting: true })
+        // return <EditTransaction oldTransaction={transaction} />;
     };
 
-    renderInput = ({ input, label, meta }) => {
-        console.log(label);
-        const className = `field ${meta.error && meta.touched ? "error" : ""}`;
-
-        return (
-            <div className={className}>
-                <label>{label}</label>
-                <input {...input} autoComplete="off" />
-                {this.renderError(meta)}
-            </div>
-        );
-    };
-
-    render() {
+    renderRow() {
         const { id, type, source } = this.props.transaction;
 
         return (
@@ -36,7 +25,7 @@ class Transaction extends React.Component {
                 <div className="two wide column">
                     <button
                         className="ui button primary"
-                        onClick={this.editTransaction.bind(
+                        onClick={this.handleEditTransaction.bind(
                             this,
                             this.props.transaction
                         )}
@@ -52,6 +41,19 @@ class Transaction extends React.Component {
                         Delete
                     </button>
                 </div>
+            </div>
+        );
+    }
+
+    renderEdit(transaction) {
+        return <EditTransaction editTransaction={this.handleEditTransaction} transaction={transaction}/>
+    }
+
+    render() {
+        console.log('this.props', this.props)
+        return (
+            <div className="twelve wide column">
+                {!this.state.isEditting ? this.renderRow() : this.renderEdit(this.props.transaction)}
             </div>
         );
     }
