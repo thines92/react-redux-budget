@@ -1,6 +1,6 @@
 import React from "react"
 
-import { fetchTransactions, addTransaction } from "../actions/transactionActions"
+import { fetchTransactions, addCategory } from "../actions/transactionActions"
 import { connect } from "react-redux"
 import AddCategory from './addCategory'
 import Transaction from './transaction'
@@ -22,9 +22,9 @@ class TransactionTable extends React.Component {
         })
     }
 
-    addTransaction = (income, source) => {
+    addCategory = (income, source) => {
         console.log('these props', this.props)
-        this.props.addTransaction({
+        this.props.addCategory({
             id: this.props.transactions.length,
             income: income,
             source: source
@@ -35,7 +35,7 @@ class TransactionTable extends React.Component {
         console.log('this', this)
         return (
             <div>
-                <AddCategory addTransaction={this.addTransaction.bind(this)} />
+                <AddCategory addCategory={this.addCategory.bind(this)} />
                 <table className="ui celled table">
                     <thead>
                         <tr>
@@ -60,6 +60,6 @@ export default connect(
     mapStateToProps,
     {
         fetchTransactions,
-        addTransaction
+        addCategory
     }
 )(TransactionTable);

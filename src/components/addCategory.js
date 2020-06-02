@@ -20,7 +20,7 @@ class AddCategory extends React.Component {
         console.log('e', e.target)
         e.preventDefault();
         console.log('props', this.props)
-        this.props.addTransaction(this.state.income, this.state.source)
+        this.props.addCategory(this.state.income, this.state.source)
         
         this.setState({
             income: '',

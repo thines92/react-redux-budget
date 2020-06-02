@@ -4,7 +4,7 @@ export const fetchTransactions = () => {
     }
 }
 
-export const addTransaction = (transaction) => {
+export const addCategory = (transaction) => {
     console.log('action', transaction)
     return {
         type: "ADD_TRANSACTION",
